@@ -4,7 +4,7 @@
 // Runs on Atmel ATmega32U4 Arduino Leonardo (with MIDI USB Library)
 // Reads 9 analog inputs from internal ADCs
 // Sends MIDI CC numbers 12-20 or 21-29 according to selected mode
-// Last update: Feb 2022
+// Last update: Feb 2023
 // 
 
 ////////////////////////////////////////////////////////////////////
@@ -81,7 +81,7 @@ void DoDrawbar(int d, int value)
   
   // Send Midi 
   //SendMidiCC(mode > 0 ? 1 : 0, CCMap[mode][d], val7bit); // Old version: switch channel according to CC set
-  SendMidiCC(mode > 0 ? 1 : 0, CCMap[mode][d], val7bit); // Always send on channel 0
+  SendMidiCC(0, CCMap[mode][d], val7bit); // Always send on channel 0
 }
 
 // The setup routine runs once when you press reset:
